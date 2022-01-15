@@ -12,6 +12,9 @@ import {  Observable  } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
 
+  profile:Profile[] | undefined;
+  userName:string = 'ShaviyaVictor';
+
   constructor() { }
 
   ngOnInit(): void {
