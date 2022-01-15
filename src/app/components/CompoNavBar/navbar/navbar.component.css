@@ -40,3 +40,7 @@ div#navigation {
 .me-2 {
   color: white;
 }
+
+div#loader {
+  text-align: center;
+}
