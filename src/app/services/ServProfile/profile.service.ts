@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient, HttpClientModule  } from '@angular/common/http';
 
 
-import {  Observable  } from 'rxjs/Rx';
+import {  Observable  } from 'rxjs';
 import { Profile } from 'src/app/classes/ClassProfile/profile';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 
 export class ProfileService {
 
-  profile:Profile [];
+  profile:Profile[] | undefined;
   userName:string = 'ShaviyaVictor';
   
 
@@ -26,7 +26,7 @@ export class ProfileService {
 
    getProfile(username:string): Observable<Profile[]> {
 
-    return this.http.get<Profile[]>(  environment.profUrl + this.userName  )
+    return this.http.get<Profile[]>(  environment.profUrl + this.userName  );
 
    }
    
