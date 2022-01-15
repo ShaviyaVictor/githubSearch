@@ -22,11 +22,16 @@ nav {
 .fa-github  {
   margin-left: 8%;
   margin-right: 6%;
+  cursor: pointer;
 }
 
 div#navigation p{
   display: inline;
   margin: 0.6em;
+  cursor: pointer;
+}
+div#navigation p:hover{
+  color: #C4C4C4;
 }
 div#navigation {
   margin-top: 0.6em;
