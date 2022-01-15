@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-/*  importing bootstrap  */
-@import "~bootstrap/dist/css/bootstrap.css"
+/*  importing bootstrap  And always remember to end with a semi-colon*/
+@import "~bootstrap/dist/css/bootstrap.css";
 
 /*  importing font awesome icons  */
+@import "~font-awesome/css/font-awesome.min.css";
+
+
+
