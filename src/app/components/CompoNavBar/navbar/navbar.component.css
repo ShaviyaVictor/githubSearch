@@ -1,0 +1,37 @@
+img {
+  width: 4em;
+  cursor: pointer;
+  margin-right: 2%;
+}
+
+form {
+  float: left;
+}
+
+input.me-2 {
+  height: 2.5em;
+  width: 30em;
+  margin-top: 0.28em;
+  background-color: black;
+}
+
+nav {
+  color: white;
+}
+
+.fa-github  {
+  margin-left: 8%;
+  margin-right: 6%;
+}
+
+div#navigation p{
+  display: inline;
+  margin: 0.6em;
+}
+div#navigation {
+  margin-top: 0.6em;
+}
+
+.me-2 {
+  color: white;
+}
