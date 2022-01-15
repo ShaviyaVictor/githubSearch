@@ -26,7 +26,7 @@ export class ProfileService {
 
    getProfile(username:string): Observable<Profile[]> {
 
-    return this.http.get<Profile[]>(  environment.profUrl + this.userName  );
+    return this.http.get<Profile[]>(  environment.profUrl + '/profile/' + this.userName  );
 
    }
    
