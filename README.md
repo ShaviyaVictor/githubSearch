@@ -1,7 +1,7 @@
 # githubSearch
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.     
-![github_Search_Screenshot](#)
+![github_Search_Screenshot](https://github.com/ShaviyaVictor/githubSearch/blob/main/src/assets/Dummy%20Screenshot.png)
 
 ## Project Description
 A website where users may enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories. A person can also look for repositories.
