@@ -19,6 +19,11 @@ nav {
   color: white;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .fa-github  {
   margin-left: 8%;
   margin-right: 6%;
@@ -31,7 +36,7 @@ div#navigation p{
   cursor: pointer;
 }
 div#navigation p:hover{
-  color: #C4C4C4;
+  color: #C4C4C4 !important; 
 }
 div#navigation {
   margin-top: 0.6em;

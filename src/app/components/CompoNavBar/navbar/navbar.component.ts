@@ -20,70 +20,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(private profileService:ProfileService ) { }
 
-  public getProfile(event:any) {
+ 
 
-    this.loading = true;
-
-    let promise = new Promise<void>((resolve, reject) => {
-
-      this.profileService.getProfile(this.userName).toPromise().then(response => {
-
-        this.profile = response;
-
-        this.loading = false;
-
-        resolve();
-
-      },
-      
-        error => {
-
-          this.errorMessage = 'Sorry. The user/repository does not exist!';
-
-          this.loading = false;
-
-        }
-
-      );
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return promise;
-
-  }
-
+    
   ngOnInit(): void {
   }
 
