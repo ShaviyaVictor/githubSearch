@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient, HttpClientModule, HttpHeaders  } from '@angular/common/http';
-import 'rxjs/add/operator/map';
 
 
-import {  Observable  } from 'rxjs';
 import { Profile } from 'src/app/classes/ClassProfile/profile';
 import { environment } from 'src/environments/environment';
-
 
 
 
@@ -16,23 +13,83 @@ import { environment } from 'src/environments/environment';
 
 export class ProfileService {
 
-  profile:Profile[] | undefined;
-  private userName:string;
-  private clientId = '2b6a1427f546a62194a1';
-  private clientSecret = 'ab2ee006ff37ad17b7434695d405ce3f9ad52a58';
-  
 
-  constructor(  private http:HttpClient ) { 
+  myProfile!: any[];
+  myRepositories!: any[];
+  userRepo!: any[];
+  private userName!: string;
 
-    console.log('Service is now running')
+
+  constructor(private http: HttpClient) {
+
+    console.log('My service injector is working')
     this.userName = 'ShaviyaVictor';
 
-   }
+  }
 
-   getProfile(username:string): Observable<Profile[]> {
+  getProfile(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/users/' + this.userName + '?access_token = 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`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+  }
 
-    return this.http.get<Profile[]>(  environment.profUrl + '/profile/' + this.userName  );
+  getRepos(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/users/ShaviyaVictor/repos' + ?access_token = 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`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          //
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+  }
 
-   }
-   
+  searchUser(data: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/search/users?q = ${data} &per_page = 1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+  }
+
+  searchRepos(query: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/search/repositories?q = ${query}&per_page = 1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+  }
+
+  getUserProfile(repoURL: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const apiUrl = `${repoURL}?&per_page=1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+  }
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  profUrl: 'https://api.github.com',
+  patKey: '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',
 
 };
 
