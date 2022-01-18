@@ -26,9 +26,9 @@ export class NavbarComponent implements OnInit {
 
     let promise = new Promise<void>((resolve, reject) => {
 
-      this.profileService.getProfile(this.userName).toPromise().then(Response => {
+      this.profileService.getProfile(this.userName).toPromise().then(response => {
 
-        this.profile = Response;
+        this.profile = response;
 
         this.loading = false;
 
@@ -47,6 +47,38 @@ export class NavbarComponent implements OnInit {
       );
 
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return promise;
 
