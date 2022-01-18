@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+
+/* styles for the left side and common elements */
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h3, .aboutrepo {
+  color: #6B6969;
+}
+
+div h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1em 0em ;
+}
+
+hr {
+  margin-top: 5rem;
+}
+
+.inter {
+  border: #C4C4C4 solid 1px;
+  margin: 0.6em;
+  border-radius: 5px;
+}
+.btn {
+  border: #C4C4C4 solid 1.5px;
+  /* padding: 0em 5.8em; */
+  min-width: 17.5em;
+  background-color: #F3F3F3;
+}
+.btn:hover {
+  background-color: #C4C4C4;
+}
+
+#pinned {
+  margin-bottom: -2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 17.5rem;
+  margin-top: -3rem;
+  cursor: pointer;
+}
+
+.cont {
+  margin: 0em 12em 0em 16em;
+}
+
+#fans {
+  margin-top: 1em;
+
+}
+
+
+
+
+/* styles for the right side */
+
+.repolink {
+  margin-left: 0.6em;
+  text-decoration: none;
+  font-weight: 500;
+}
+.repolink:hover {
+  text-decoration: underline;
+}
+
+.aboutrepo {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+.fa-star-o {
+  margin-left: 1.5em;
+}
+
+.activity {
+  margin-top: 1.4em;
+}
+
+hr#line {
+  margin-left: 1em;
+  margin-right: 10em;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+}

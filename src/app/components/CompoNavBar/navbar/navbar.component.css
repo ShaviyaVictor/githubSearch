@@ -35,9 +35,11 @@ div#navigation p{
   margin: 0.6em;
   cursor: pointer;
 }
-div#navigation p:hover{
+
+div#navigation p:hover, div#navigation p:active{
   color: #C4C4C4 !important; 
 }
+
 div#navigation {
   margin-top: 0.6em;
 }

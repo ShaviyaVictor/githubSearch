@@ -7,8 +7,8 @@
         <input class="form-control me-2" type="search" placeholder="Search or jump to..." aria-label="Search">
         <div id="navigation">
           <strong>
-            <a href=""><p>Home</p></a>
-            <a href=""><p>GitSearch</p></a>
+            <a href="" routerLink="home" routerLinkActive='active'><p>Home</p></a>
+            <a href="" routerLink="search" routerLinkActive='active'><p>GitSearch</p></a>
             <a href=""><p>Marketplace</p></a>
             <a href=""><p>Explore</p></a>
           </strong>
@@ -22,13 +22,172 @@
     <i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i><h4 class="sr-only">Loading...</h4>
   </div>
 
-  <div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div>
     
+    <div class="container">
+    <form class="m-auto jumbotron pt-lg-5 mt-lg-5" autocomplete="off">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="options">Type</label>
+            <select class="form-control" id="options" #criteria>
+              <option>Users</option>
+              <option>Repositories</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label for='data'>Username</label>
+            <input id='data' type="search" class="form-control" #search required onfocus="this.value=''">
+          </div>
+        </div>
+      </div>
+  
+      <div class="m-auto text-center form-group">
+        <button class="btn  btn-primary" (click)="performSearch( criteria.value,search.value)">
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="loader text-center py-5 mt-5" *ngIf='loading'>
+
+  </div>
+  <div class="container-fluid p-5" *ngIf="!repoDetail">
+    <div class="row" *ngIf="!repoInfo">
+      <div class="results p-3" *ngIf='profile'>
+        <h3 class="lead">{{profile?.length}} Users.</h3>
+      </div>
+    </div>
+    <div class='row' *ngIf="!repoInfo">
+      <div class="col-md-3 pb-4" *ngFor="let gtUser of profile">
+        <div class="card">
+          <div class="card-image text-center">
+            <img class="img  rounded-circle" src="{{gtUser?.avatar_url}}" height="60px" alt="image">
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-12 p-3">
+              <div class="">
+                <div class="content">
+                  <h4 class="text-center"><strong>{{gtUser?.login}}</strong></h4>
+                </div>
+                <hr>
+                <div class="card-action text-center ">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <button (click)="findRepos(gtUser?.repos_url!)" class='btn  btn-sm btn-primary'>Repos</button>
+                    </div>
+                    <div class="col-sm-6">
+                      <a href="{{gtUser?.html_url}}" class='btn btn-sm btn-success'>Github Profile</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="repoInfo">
+      <div class="results p-3" *ngIf='repos'>
+        <h3 class="lead">{{repos?.length}} Repos found.</h3>
+      </div>
+    </div>
+    <div class='row' *ngIf="repoInfo">
+      <div class="col-md-3" *ngFor="let repo of repos">
+        <div class="card mb-4">
+          <div class="card-header">
+            <div class="lead">
+              <a target="_blank" href="{{repo?.html_url}}"><h4> {{repo?.name}}</h4></a>
+            </div>
+          </div>
+          <div class="card-body m-4">
+            <div class="text-info font-italic">
+              {{repo?.description}}
+            </div>
+          </div>
+          <div class="card-footer p-0 m-0">
+            <div class="row">
+              <div class="col-sm-12" *ngIf='repo.language'>
+                <div class="languageUsed "> Language:
+                  <span class="font-italic">{{repo?.language}}</span>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                  <span class="text-center text-info font-italic">
+                    Created {{repo?.updated_at}}
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5 py-5" *ngIf="isConnected && repoDetail">
+    <div class="minfo" *ngIf="userDetails">
+      <h4 class="lead">{{userDetails[0]?.owner.login}} repositories</h4>
+      <p>Returned {{userDetails.length}} repositories</p>
+      <hr>
+    </div>
+    <div class="repositories m-5">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let repo of userDetails">
+          <div class="card mb-4">
+            <div class="mContent m-4">
+              <div class="lead">
+                <h4><a href="{{repo.html_url}}">{{repo?.name}}</a></h4>
+              </div>
+              <div>
+                {{repo?.full_name}}
+              </div>
+              <hr>
+              <div class="row infos">
+                <div class="col-md-3" *ngIf='repo?.language'>
+                  {{repo?.language}}
+                </div>
+                <div class="col-md-4"> <span>updated:
+                    {{repo?.updated_at}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  <div class="container py-5 text-center  codes" *ngIf="!isConnected">
+    <div class="row py-5 mt-5">
+      <h1 Effect> Network Error!</h1>
+    </div>
   </div>
 
-  <!--    import jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </div>
+
+      import jQuery -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 
 </body>
